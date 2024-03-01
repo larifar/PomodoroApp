@@ -60,15 +60,16 @@ fun TimerScreen() {
     ) {
         Column(
             modifier = Modifier
-                .height(300.dp),
+                .height(200.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceAround
         ) {
             Text(
                 text = "Estudando",
                 fontSize = 32.sp,
-                color = Color(0xF7E9E7E0),
-                fontFamily = FontFamily.Serif
+                color = Color.Black,
+                fontFamily = FontFamily.Cursive,
+                modifier = Modifier.background(Color.White),
             )
             Row(
                 verticalAlignment = Alignment.CenterVertically
