@@ -4,9 +4,11 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -32,7 +34,7 @@ import kotlinx.coroutines.delay
 @Composable
 fun TimerScreen() {
     var tempo by remember {
-        mutableStateOf(60*25)
+        mutableStateOf(60 * 25)
     }
 
     var play by remember {
@@ -45,7 +47,7 @@ fun TimerScreen() {
                 delay(1000) // Aguarda 1 segundo
                 tempo -= 1
             }
-            if (tempo==0){
+            if (tempo == 0) {
                 play = false
             }
         }
@@ -91,7 +93,7 @@ fun TimerScreen() {
                 )
 
                 IconButton(onClick = {
-                    tempo-=30
+                    tempo -= 30
                 }) {
                     Icon(
                         painter = painterResource(id = R.drawable.arrow_drop_down_24),
@@ -104,13 +106,27 @@ fun TimerScreen() {
             }
 
         }
-        Row {
+        Row{
             IconButton(onClick = {
                 play = !play
             }) {
                 Icon(
                     painter = painterResource(id = mudarIcone(play)),
                     contentDescription = "vetor de play",
+                    modifier = Modifier
+                        .size(55.dp)
+                )
+            }
+            
+            Spacer(modifier = Modifier.width(12.dp))
+
+            IconButton(onClick = {
+                tempo = 0
+                play = false
+            }) {
+                Icon(
+                    painter = painterResource(id = R.drawable.baseline_settings_backup_restore_24),
+                    contentDescription = "vetor de refactor",
                     modifier = Modifier
                         .size(55.dp)
                 )
